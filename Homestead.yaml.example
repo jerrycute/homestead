@@ -1,0 +1,68 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+    - ~/.ssh/id_rsa.pub
+
+folders:
+    - map: ~/code
+      to: /home/vagrant/code
+      type: nfs
+
+    - map: 'D:\php_project'
+      to: /home/vagrant/php_project
+      type: nfs
+
+    - map: 'D:\git_project'
+      to: /home/vagrant/git_project
+      type: nfs
+
+sites:
+    - map: homestead.test
+      to: /home/vagrant/code/laravel/public
+
+    - map: forum.test
+      to: /home/vagrant/code/forum/public
+
+    - map: local.test
+      to: /home/vagrant/php_project
+      type: autoindex
+
+    - map: oa.test
+      to: /home/vagrant/php_project/InfoCollectSystem/public
+
+    - map: res.oa.test
+      to: /home/vagrant/php_project/InfoCollectSystem/storage/app/static
+      type: static
+
+    - map: hr.test
+      to: /home/vagrant/php_project/recruitment/public
+
+    - map: api.test
+      to: /home/vagrant/php_project/ApiToolAdminV2/public
+
+    - map: polar.internal.test
+      to: /home/vagrant/git_project/internal-system-tools/public
+
+
+databases:
+    - homestead
+
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
