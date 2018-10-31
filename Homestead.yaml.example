@@ -6,6 +6,8 @@ provider: virtualbox
 backup: true
 mongodb: true
 
+name: homestead-work-8888
+box: laravel/homestead
 
 authorize: ~/.ssh/id_rsa.pub
 
