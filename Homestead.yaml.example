@@ -7,7 +7,7 @@ backup: true
 mongodb: true
 
 name: homestead-work-8888
-box: laravel/homestead
+box: work8888/homestead
 
 authorize: ~/.ssh/id_rsa.pub
 
