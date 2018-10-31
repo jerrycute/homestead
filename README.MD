@@ -25,8 +25,8 @@
 运行命令
 ```
 $ cd /e/virtualbox/homestead-box/
-$ cp metadata.json metadata-work-8888.json &&  sed  -ir 's#"name": "(.*)/homestead",#"name":"work8888/homestead",#' metadata-work-8888.json
-$ vagrant box add metadata.json
+$ cp metadata.json metadata-work-8888.json &&  sed  -r -i 's#"name": "(.*)/homestead",#"name":"work8888/homestead",#' metadata-work-8888.json
+$ vagrant box add metadata-work-8888.json
 $ vagrant box list
 ```
 
