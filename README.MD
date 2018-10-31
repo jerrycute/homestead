@@ -1,5 +1,6 @@
 # homestead 安装与使用（Windows）
 
+
 ## 简略步骤
 * 安装 VirtualBox
 * 安装 Vagrant
