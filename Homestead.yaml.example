@@ -3,6 +3,9 @@ ip: "192.168.10.10"
 memory: 2048
 cpus: 1
 provider: virtualbox
+backup: true
+mongodb: true
+
 
 authorize: ~/.ssh/id_rsa.pub
 
@@ -24,18 +27,13 @@ folders:
       type: nfs
 
 sites:
-    - map: homestead.test
-      to: /home/vagrant/code/laravel/public
-
-    - map: forum.test
-      to: /home/vagrant/code/forum/public
-
     - map: local.test
       to: /home/vagrant/php_project
       type: autoindex
 
     - map: oa.test
       to: /home/vagrant/php_project/InfoCollectSystem/public
+      schedule: true
 
     - map: res.oa.test
       to: /home/vagrant/php_project/InfoCollectSystem/storage/app/static
@@ -43,16 +41,23 @@ sites:
 
     - map: hr.test
       to: /home/vagrant/php_project/recruitment/public
+      schedule: true
 
     - map: api.test
       to: /home/vagrant/php_project/ApiToolAdminV2/public
+      schedule: true
 
     - map: polar.internal.test
       to: /home/vagrant/git_project/internal-system-tools/public
+      schedule: true
 
 
 databases:
     - homestead
+    - internal_system_tools
+    - info_collect_system
+    - api_tool_admin_v2
+    - recruitment
 
 # blackfire:
 #     - id: foo
