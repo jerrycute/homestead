@@ -212,6 +212,11 @@ class Homestead
             end
         end
 
+        config.vm.provision 'shell' do |s|
+            s.name = 'Restarting Cron'
+            s.inline = 'sudo service cron restart'
+        end
+        
         config.vm.provision "shell" do |s|
             s.name = "Restarting Nginx"
             s.inline = "sudo service nginx restart; sudo service php7.2-fpm restart"
