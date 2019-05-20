@@ -1,10 +1,10 @@
 ---
 ip: "192.168.10.10"
-memory: 2048
+memory: 4096
 cpus: 1
 provider: virtualbox
 backup: true
-mongodb: true
+mongodb: false
 
 name: homestead-work-8888
 box: work8888/homestead
@@ -18,28 +18,33 @@ keys:
 folders:
     - map: ~/code
       to: /home/vagrant/code
-      type: nfs
 
-    - map: 'D:\php_project'
+    - map: 'H:\php_project'
       to: /home/vagrant/php_project
-      type: nfs
 
-    - map: 'D:\git_project'
+    - map: 'H:\git_project'
       to: /home/vagrant/git_project
-      type: nfs
+
+    - map: 'H:\website_php'
+      to: /home/vagrant/website_php
 
 sites:
-    - map: local.test
-      to: /home/vagrant/php_project
-      type: autoindex
-
-    - map: oa.test
-      to: /home/vagrant/php_project/InfoCollectSystem/public
+    - map: laravel.test
+      to: /home/vagrant/php_project/test/laravel5.5/public
       schedule: true
 
-    - map: res.oa.test
-      to: /home/vagrant/php_project/InfoCollectSystem/storage/app/static
-      type: static
+    - map: local.test
+      to: /home/vagrant
+      type: autoindex
+
+
+    - map: miniapproval.oa.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/miniApproval/public
+      schedule: true
+
+    - map: keys.oa.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/keys-borrow/public
+      schedule: true
 
     - map: hr.test
       to: /home/vagrant/php_project/recruitment/public
@@ -53,11 +58,27 @@ sites:
       to: /home/vagrant/git_project/internal-system-tools/public
       schedule: true
 
+    - map: jg.6wtx.test
+      to: /home/vagrant/php_project/InfoCollectSystemV2/public
+      schedule: true
+
+    - map: jg-static.6wtx.test
+      to: /home/vagrant/php_project/InfoCollectSystemV2/storage/app/static
+      type: static
+
+    - map: jg.dev.6wtx.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/v2-dev/public
+      schedule: true
+
+    - map: jg-static.dev.6wtx.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/v2-dev/storage/app/static
+      type: static    
 
 databases:
     - homestead
     - internal_system_tools
     - info_collect_system
+    - info_collect_system_v2
     - api_tool_admin_v2
     - recruitment
 
@@ -67,9 +88,11 @@ databases:
 #       client-id: foo
 #       client-token: bar
 
-# ports:
-#     - send: 50000
-#       to: 5000
-#     - send: 7777
-#       to: 777
-#       protocol: udp
+ports:
+     - send: 9501
+       to: 9501
+
+# networks:
+#     - type: "public_network"
+#       ip: 172.17.58.0
+#       bridge: "Realtek PCIe GBE Family Controller"
