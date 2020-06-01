@@ -16,69 +16,89 @@ keys:
     - ~/.ssh/id_rsa.pub
 
 folders:
-    - map: ~/code
-      to: /home/vagrant/code
-
     - map: 'H:\php_project'
       to: /home/vagrant/php_project
+      type: nfs
 
     - map: 'H:\git_project'
       to: /home/vagrant/git_project
+      type: nfs
 
     - map: 'H:\website_php'
       to: /home/vagrant/website_php
+      type: nfs
 
 sites:
-    - map: laravel.test
-      to: /home/vagrant/php_project/test/laravel5.5/public
-      schedule: true
-
     - map: local.test
       to: /home/vagrant
-      type: autoindex
-
-
-    - map: miniapproval.oa.test
-      to: /home/vagrant/php_project/branches/InfoCollectSystem/miniApproval/public
-      schedule: true
-
-    - map: keys.oa.test
-      to: /home/vagrant/php_project/branches/InfoCollectSystem/keys-borrow/public
-      schedule: true
-
-    - map: hr.test
-      to: /home/vagrant/php_project/recruitment/public
-      schedule: true
+      type: autoindex   
 
     - map: api.test
       to: /home/vagrant/php_project/ApiToolAdminV2/public
-      schedule: true
+      schedule: false
 
     - map: polar.internal.test
       to: /home/vagrant/git_project/internal-system-tools/public
-      schedule: true
+      schedule: false
 
     - map: jg.6wtx.test
       to: /home/vagrant/php_project/InfoCollectSystemV2/public
-      schedule: true
+      schedule: false
 
     - map: jg-static.6wtx.test
       to: /home/vagrant/php_project/InfoCollectSystemV2/storage/app/static
       type: static
 
     - map: jg.dev.6wtx.test
-      to: /home/vagrant/php_project/branches/InfoCollectSystem/v2-dev/public
-      schedule: true
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/dev/public
+      schedule: false
 
     - map: jg-static.dev.6wtx.test
-      to: /home/vagrant/php_project/branches/InfoCollectSystem/v2-dev/storage/app/static
-      type: static    
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/dev/storage/app/static
+      type: static
+
+    - map: game.download.api.test
+      to: /home/vagrant/git_project/game-download-api
+ 
+
+    - map: jg.api.6wtx.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/api/public
+      schedule: false
+
+    - map: jg-static.api.6wtx.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/api/storage/app/static
+      type: static
+
+
+
+    - map: jg.stable.6wtx.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/stable/public
+      schedule: false
+
+    - map: jg-static.stable.6wtx.test
+      to: /home/vagrant/php_project/branches/InfoCollectSystem/stable/storage/app/static
+      type: static
+
+
+
+    - map: hr.test
+      to: /home/vagrant/git_project/hr/public
+      schedule: false
+
+    - map: hr.dev.test
+      to: /home/vagrant/git_project/branches/hr/dev/public
+      schedule: false
+
+    - map: hr.integral.test
+      to: /home/vagrant/git_project/branches/hr/integral/public
+      schedule: false
 
 databases:
     - homestead
     - internal_system_tools
     - info_collect_system
     - info_collect_system_v2
+    - info_collect_system_mini_approval
     - api_tool_admin_v2
     - recruitment
 
