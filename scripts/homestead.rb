@@ -199,7 +199,7 @@ class Homestead
         
         config.vm.provision "shell" do |s|
             s.name = "Restarting Nginx"
-            s.inline = "sudo service nginx restart; sudo service php7.2-fpm restart"
+            s.inline = "sudo service nginx restart; sudo service php7.4-fpm restart"
         end
 
         # Install MariaDB If Necessary
@@ -250,7 +250,7 @@ class Homestead
         if settings.has_key?("variables")
             settings["variables"].each do |var|
                 config.vm.provision "shell" do |s|
-                    s.inline = "echo \"\nenv[$1] = '$2'\" >> /etc/php/7.2/fpm/php-fpm.conf"
+                    s.inline = "echo \"\nenv[$1] = '$2'\" >> /etc/php/7.4/fpm/php-fpm.conf"
                     s.args = [var["key"], var["value"]]
                 end
 
@@ -261,7 +261,7 @@ class Homestead
             end
 
             config.vm.provision "shell" do |s|
-                s.inline = "service php7.2-fpm restart"
+                s.inline = "service php7.4-fpm restart"
             end
         end
 
